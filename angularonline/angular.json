@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angularonline": {
+    "ngOnline": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angularonline",
+            "outputPath": "dist/ngOnline",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angularonline:build"
+            "browserTarget": "ngOnline:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angularonline:build:production"
+              "browserTarget": "ngOnline:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angularonline:build"
+            "browserTarget": "ngOnline:build"
           }
         },
         "test": {
@@ -110,15 +110,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angularonline:serve"
+            "devServerTarget": "ngOnline:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angularonline:serve:production"
+              "devServerTarget": "ngOnline:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "angularonline"
+    }
+  },
+  "defaultProject": "ngOnline",
+  "cli": {
+    "analytics": false
+  }
 }
