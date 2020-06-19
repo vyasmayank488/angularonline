@@ -19,3 +19,6 @@ b=20
 add(a,b)
 
 */
+
+// index.html -> main.ts [ to call app.module]
+// app.module [ to call app.compo ]    -> app.component.ts [ View : html, css, ts data]

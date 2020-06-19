@@ -1,51 +1,63 @@
 import { Component, OnInit } from '@angular/core';
 
+// import { MobParts } from './mob-parts';
+import { MobParts } from 'src/app/models/mob-parts';
+import { MOBPARTS } from './mock-data';
+
 @Component({
   selector: 'app-mob-part',
   templateUrl: './mob-part.component.html',
 })
 export class MobPartComponent implements OnInit {
-  constructor() {}
+  name: string = 'Alex';
+  // name = 1234;
 
-  ngOnInit(): void {}
-  abc = 'some text...!';
+  ngOnInit(): void {
+    // component
+    this.mobParts = MOBPARTS;
+    console.log('1 ngOnInit Block...!');
+  }
 
-  arr = ['Pune', 'Hyderabad', 'Mumbai'];
-  // console.log(arr);
+  constructor() {
+    console.log('2 Constructor Block...!');
+  } // class: DI -> obj init
 
-  mobParts = [
-    {
-      id: 1001,
-      name: 'screen 5.5',
-      description: '5.5 Screen for Moto g',
-      inStock: 5,
-      prodColor: 'red',
-      canPurch: true,
-      clsVar: true,
-      country: 'Australia',
-      price: 1200,
-    },
-    {
-      id: 1002,
-      name: 'SCREEN 5',
-      description: '5 Screen for Samsung',
-      inStock: 8,
-      prodColor: 'green',
-      canPurch: false,
-      clsVar: true,
-      country: 'India',
-      price: 1200,
-    },
-    {
-      id: 1003,
-      name: 'Key Panel',
-      description: 'Key panel for Nokia',
-      inStock: 0,
-      prodColor: 'blue',
-      canPurch: true,
-      clsVar: true,
-      country: 'Germany',
-      price: 1200,
-    },
-  ];
+  // 8 lifecylehooks
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.mobParts = [];
+    console.log('3 ngOnDestroy Block...!');
+  }
+
+  ngAfterViewInit() {
+    console.log('4 ngAfterViewInit Block...!');
+  }
+
+  ngAfterContentInit() {
+    console.log('5 ngAfterContentInit Block...!');
+  }
+
+  mobParts: MobParts[]; // 10MB
+
+  calcProd() {
+    let tot = 0;
+
+    for (let mobPart of this.mobParts) {
+      tot = tot + mobPart.inStock;
+    }
+    return tot;
+  }
+
+  upQuantity(mobPart) {
+    // alert('We are in upQuantity');
+    if (mobPart.quantity < mobPart.inStock) mobPart.quantity++;
+  }
+
+  downQuantity(mobPart) {
+    if (mobPart.quantity != 0) mobPart.quantity--;
+  }
 }
+
+//  Gmail :  inbox  -> send :  10mb
