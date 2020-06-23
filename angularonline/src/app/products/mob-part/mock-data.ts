@@ -9,7 +9,7 @@ export const MOBPARTS: MobParts[] = [
     id: 1001,
     name: 'screen 5.5',
     description: '5.5 Screen for Moto g',
-    inStock: 5,
+    inStock: 1500,
     prodColor: 'red',
     canPurch: true,
     clsVar: true,

@@ -2,7 +2,7 @@
 
 <ul>
   <li *ngFor="let mobPart of mobParts">
-    <div class="col s12 m4">
+    <div class="col s12 m4 cardHeight">
       <div class="card" [class.clsName]="mobPart.clsVar">
         <div class="card-image">
           <!-- <img src="{{ mobPart.prodImg }}" /> -->
@@ -47,7 +47,12 @@
               (click)="downQuantity(mobPart)"
               ><i class="material-icons">remove</i></a
             >
-
+            <!-- $object-built-in -->
+            <input
+              [value]="mobPart.quantity"
+              (input)="catchVal($event.target.value, $event)"
+              [(ngModel)]="mobPart.quantity"
+            />
             {{ mobPart.quantity }}
             <a
               class="waves-effect waves-light btn"

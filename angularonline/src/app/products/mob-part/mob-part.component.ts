@@ -58,6 +58,12 @@ export class MobPartComponent implements OnInit {
   downQuantity(mobPart) {
     if (mobPart.quantity != 0) mobPart.quantity--;
   }
+
+  catchVal(eventdata, eveObj) {
+    console.clear();
+    console.log("we are in 'catchVal' ", eventdata);
+    console.log(' eveObj ', eveObj);
+  }
 }
 
 //  Gmail :  inbox  -> send :  10mb

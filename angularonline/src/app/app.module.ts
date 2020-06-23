@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+// step 2: import -> RouterModule, Routes
 
 import { AppComponent } from './app.component';
 import { SqrtPipe } from './pipes/sqrt.pipe';
@@ -15,6 +18,17 @@ import { MobPartComponent } from './products/mob-part/mob-part.component';
 import { BooksComponent } from './products/books/books.component';
 import { LaptopsComponent } from './products/laptops/laptops.component';
 import { PensComponent } from './products/pens/pens.component';
+
+// let name: string;
+// step 4: { path: 'mobile', component: MobPartComponent }
+const appRoutes: Routes = [
+  { path: 'mobile', component: MobPartComponent },
+  { path: 'books', component: BooksComponent },
+  { path: 'lapi', component: LaptopsComponent },
+  { path: 'pen', component: PensComponent },
+];
+
+// step 5: nav.compo.html
 
 @NgModule({
   declarations: [
@@ -33,7 +47,8 @@ import { PensComponent } from './products/pens/pens.component';
     LaptopsComponent,
     PensComponent,
   ],
-  imports: [BrowserModule], // module : group of logics
+  //  step 3: RouterModule.forRoot(appRoutes)
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)], // module : group of logics
   bootstrap: [AppComponent], // to run : root compo
 })
 export class AppModule {}
